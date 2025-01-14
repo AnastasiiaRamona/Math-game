@@ -1,5 +1,5 @@
 class Model {
-  currentMultiplier;
+  currentMultiplier = 1;
   currentIndex = 1;
   buttonState = 'disabled';
   isAnswerCorrect = false;

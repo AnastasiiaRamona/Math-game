@@ -1,9 +1,11 @@
 import './cube.css';
+import $ from 'jquery';
+
 class Cube {
-  render() {
-    const content = `
+  create() {
+    const content = $(`
       <div class="cube"></div>
-    `;
+    `);
     return content;
   }
 }

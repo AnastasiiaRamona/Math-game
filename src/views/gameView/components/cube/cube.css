@@ -1,6 +1,6 @@
 .cube {
-  width: 10vh;
-  height: 10vh;
+  width: 5vh;
+  height: 5vh;
   background: rgb(21, 181, 48);
   background: radial-gradient(circle, rgba(21, 181, 48, 1) 0%, rgba(20, 97, 14, 1) 100%);
   border-radius: 10px;

@@ -1,5 +1,6 @@
-import Cube from './cube';
+import Cube from '../cube/cube';
 import $ from 'jquery';
+import './cubeRow.css';
 
 class CubeRow {
   constructor(quantity) {
@@ -7,11 +8,11 @@ class CubeRow {
     this.cube = new Cube();
   }
 
-  render() {
+  create() {
     const container = $('<div class="cube-row"></div>');
 
     for (let i = 0; i < this.quantity; i++) {
-      const cubeContent = this.cube.render();
+      const cubeContent = this.cube.create();
       container.append(cubeContent);
     }
 
