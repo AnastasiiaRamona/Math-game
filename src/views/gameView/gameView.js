@@ -14,7 +14,7 @@ class GameView {
     const exercise = this.createExercise();
     const cubeRow = this.createCubeRow();
 
-    const doneButton = new DoneButton('active');
+    const doneButton = new DoneButton();
     const doneButtonContent = doneButton.create();
 
     const gameView = $('<section class="game-view"></section>');
@@ -35,6 +35,7 @@ class GameView {
     $('body').append(gameView);
 
     this.addEventListenerToDoneButton();
+    this.addEventListenerToInputAnswer();
   }
 
   createExercise() {
@@ -53,14 +54,56 @@ class GameView {
   }
 
   addEventListenerToDoneButton() {
-    $('#doneButton').on('click', () => {
+    const doneButton = $('#doneButton');
+    doneButton.on('click', () => {
       const answer = Number($('#answerInput').val());
       const isAnswerCorrect = this.controller.checkResult(answer);
       if (isAnswerCorrect) {
+        if (this.controller.getCurrentIndex() > 10) {
+          return;
+        }
+
         $('.exercises').append(this.createExercise());
         $('.cube-rows').append(this.createCubeRow());
+        this.updateButtonColor(doneButton, 'right');
+      } else {
+        this.updateButtonColor(doneButton, 'wrong');
       }
     });
+  }
+
+  addEventListenerToInputAnswer() {
+    $('#answerInput').on('input', () => {
+      const isAnswerValid = this.controller.checkInputAnswer(
+        $('#answerInput').val()
+      );
+      const doneButton = $('#doneButton');
+      if (!isAnswerValid) {
+        doneButton.prop('disabled', true);
+        this.updateButtonColor(doneButton, 'disabled');
+      } else {
+        doneButton.prop('disabled', false);
+        doneButton.removeClass('disabled');
+      }
+    });
+  }
+
+  updateButtonColor(doneButton, state) {
+    doneButton.removeClass('wrong right disabled');
+
+    switch (state) {
+      case 'right':
+        doneButton.addClass('right');
+        break;
+      case 'wrong':
+        doneButton.addClass('wrong');
+        break;
+      case 'disabled':
+        doneButton.addClass('disabled');
+        break;
+      default:
+        console.warn(`Unknown state: ${state}`);
+    }
   }
 }
 

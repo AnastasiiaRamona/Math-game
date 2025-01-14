@@ -1,13 +1,10 @@
 import $ from 'jquery';
+import './doneButton.css';
 
 class DoneButton {
-  constructor(buttonState) {
-    this.buttonState = buttonState;
-  }
-
   create() {
     const content = $(`
-      <button id="doneButton" class="${this.buttonState}">Done</button>
+      <button id="doneButton" class="disabled" disabled>Done</button>
     `);
     return content;
   }

@@ -5,9 +5,32 @@
   line-height: 1.5;
 
   color-scheme: light dark;
+  background-color: #efedef;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+button {
+  width: 8vw;
+  height: 4vh;
+  cursor: pointer;
+  font-size: large;
+  background-color: #1cb3aa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }

@@ -27,12 +27,12 @@ class Controller {
     const secondMultiplier = this.model.currentIndex;
     if (result === firstMultiplier * secondMultiplier) {
       this.model.isAnswerCorrect = true;
+
       this.model.currentIndex++;
 
       this.updateLastExerciseAnswer(result);
     } else {
       this.model.isAnswerCorrect = false;
-      alert('Wrong answer');
     }
 
     return this.model.isAnswerCorrect;
@@ -41,6 +41,14 @@ class Controller {
   updateLastExerciseAnswer(result) {
     const answerInput = $('#answerInput');
     answerInput.replaceWith($(`<p class="answered-text">${result}</p>`));
+  }
+
+  checkInputAnswer(answer) {
+    if (answer === '' || answer === undefined || answer === null) {
+      return false;
+    }
+
+    return true;
   }
 }
 

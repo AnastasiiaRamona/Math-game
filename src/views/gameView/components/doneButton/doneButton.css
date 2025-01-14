@@ -1,0 +1,15 @@
+#doneButton:hover:not([disabled]) {
+  background-color: #AFEEEE;
+}
+
+.right {
+  background-color: #228B22;
+}
+
+.wrong {
+  background-color: #FA8072;
+}
+
+.disabled {
+  background-color: #A9A9A9;
+}

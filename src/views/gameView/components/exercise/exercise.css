@@ -1,3 +1,10 @@
+.exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  align-items: flex-start;
+}
+
 .exercise {
   display: flex;
   justify-content: center;
@@ -5,4 +12,15 @@
   flex-direction: row;
   gap: 1vh;
   font-size: 2rem;
+}
+
+.exercise p {
+  margin: 0;
+}
+
+.exercise input {
+  height: 2rem;
+  width: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
 }

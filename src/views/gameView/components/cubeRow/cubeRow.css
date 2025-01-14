@@ -1,3 +1,10 @@
+.cube-rows {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
 .cube-row {
   display: flex;
   justify-content: center;
