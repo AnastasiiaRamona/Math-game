@@ -1,5 +1,5 @@
 import Model from './model';
-import router from './routes';
+import router from './routing/router';
 import $ from 'jquery';
 
 class Controller {
@@ -44,50 +44,40 @@ class Controller {
     answerInput.replaceWith($(`<p class="answered-text">${result}</p>`));
   }
 
-  checkInputAnswer(answer) {
-    return typeof answer === 'number' && !isNaN(answer) && answer !== 0;
-  }
-
-  vhToPixels(vh) {
-    const viewportHeight = window.innerHeight;
-    const pixels = (vh / 100) * viewportHeight;
-    return pixels;
-  }
-
-  updateButtonColor(doneButton, state) {
+  updateButtonColor(button, state) {
     switch (state) {
       case 'right':
-        this.setDisabledState(doneButton, 'right');
+        this.setDisabledButtonClass(button, 'right');
         break;
       case 'wrong':
-        doneButton.addClass('wrong');
+        button.addClass('wrong');
         break;
       case 'disabled':
-        this.setDisabledState(doneButton, 'disabled');
+        this.setDisabledButtonClass(button, 'disabled');
         break;
       default:
         console.warn(`Unknown state: ${state}`);
     }
 
     setTimeout(() => {
-      doneButton.removeClass(state);
+      button.removeClass(state);
       if (state === 'right') {
-        this.setDisabledState(doneButton, 'disabled');
+        this.setDisabledButtonClass(button, 'disabled');
       }
     }, 1000);
   }
 
-  setDisabledState(button, color) {
+  setDisabledButtonClass(button, color) {
     button.prop('disabled', true);
     button.addClass(color);
   }
 
-  deleteDisabledState(button, color) {
+  removeDisabledButtonClass(button, color) {
     button.prop('disabled', false);
     button.removeClass(color);
   }
 
-  addRedFlashingToTheAnswerInput() {
+  flashWrongAnswerText() {
     $('#answerInput').addClass('input-error-text');
     setTimeout(() => {
       $('#answerInput').removeClass('input-error-text');

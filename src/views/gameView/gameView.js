@@ -2,6 +2,7 @@ import controller from '../../controller';
 import Exercise from './components/exercise/exercise';
 import CubeRow from './components/cubeRow/cubeRow';
 import DoneButton from './components/doneButton/doneButton';
+import { vhToPixels, checkAnswerIsNumber } from '../../utils';
 import $ from 'jquery';
 import './gameView.css';
 
@@ -62,46 +63,52 @@ class GameView {
       const isAnswerCorrect = this.controller.checkResult(answer);
       if (isAnswerCorrect) {
         if (this.controller.getCurrentIndex() > 10) {
-          this.controller.setDisabledState(doneButton, 'disabled');
+          this.controller.setDisabledButtonClass(doneButton, 'disabled');
           return;
         }
 
         const newExercise = this.createExercise();
         const newCubeRow = this.createCubeRow();
         $('.cube-rows').append(newCubeRow);
-
-        newCubeRow.animate({ top: '100%' }, 0).animate(
-          {
-            top:
-              (this.controller.getCurrentIndex() - 1) *
-              (48 + this.controller.vhToPixels(2)),
-          },
-          500
-        );
+        this.animateCubeRow(newCubeRow);
 
         $('.exercises').append(newExercise);
-        newExercise.hide().fadeIn(500);
+
+        this.animateExercise(newExercise);
         this.controller.updateButtonColor(doneButton, 'right');
         this.addEventListenerToInputAnswer();
       } else {
         this.controller.updateButtonColor(doneButton, 'wrong');
-        this.controller.addRedFlashingToTheAnswerInput();
+        this.controller.flashWrongAnswerText();
       }
     });
   }
 
   addEventListenerToInputAnswer() {
     $('#answerInput').on('input', () => {
-      const isAnswerValid = this.controller.checkInputAnswer(
-        Number($('#answerInput').val())
+      const isAnswerValid = checkAnswerIsNumber(
+        parseInt($('#answerInput').val())
       );
       const doneButton = $('#doneButton');
       if (!isAnswerValid) {
-        this.controller.setDisabledState(doneButton, 'disabled');
+        this.controller.setDisabledButtonClass(doneButton, 'disabled');
       } else {
-        this.controller.deleteDisabledState(doneButton, 'disabled');
+        this.controller.removeDisabledButtonClass(doneButton, 'disabled');
       }
     });
+  }
+
+  animateCubeRow(cubeRow) {
+    cubeRow.animate({ top: '100%' }, 0).animate(
+      {
+        top: (this.controller.getCurrentIndex() - 1) * (48 + vhToPixels(2)),
+      },
+      500
+    );
+  }
+
+  animateExercise(exercise) {
+    exercise.hide().fadeIn(500);
   }
 }
 

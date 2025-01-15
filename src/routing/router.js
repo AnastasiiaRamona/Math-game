@@ -1,8 +1,4 @@
-import StartView from './views/startView/startView';
-import GameView from './views/gameView/gameView';
-
-const startView = new StartView();
-const gameView = new GameView();
+import { routes } from './routes';
 
 class Router {
   constructor(routes) {
@@ -26,11 +22,6 @@ class Router {
     this.handleRouteChange();
   }
 }
-
-const routes = {
-  '/start': () => startView.render(),
-  '/game': () => gameView.render(),
-};
 
 const router = new Router(routes);
 export default router;
