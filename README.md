@@ -9,6 +9,9 @@ A fun and interactive game designed to improve your multiplication skills with v
 
 ## Screenshots
 
+<img width="1440" alt="Снимок экрана 2025-01-15 в 20 43 51" src="https://github.com/user-attachments/assets/dcc7b1fd-a886-48f1-8c38-6a3cc6206d2c" />
+<img width="1440" alt="Снимок экрана 2025-01-15 в 20 44 23" src="https://github.com/user-attachments/assets/804e32b7-4faf-42e6-bce3-9262ac2a1b35" />
+
 ## Features
 
 - **Interactive Gameplay**: Solve multiplication problems one by one by entering results in the input fields.
