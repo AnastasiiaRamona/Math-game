@@ -1,5 +1,6 @@
 .right {
   background-color: #228B22;
+  cursor: not-allowed;
 }
 
 .wrong {

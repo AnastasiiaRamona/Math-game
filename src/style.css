@@ -37,7 +37,7 @@ button {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-button:hover:not([disabled]) {
+button:hover:not([disabled]):not(.wrong):not(.right) {
   background-color: #AFEEEE;
   color: rgb(8, 29, 45);
   transition: background-color 0.2s ease, color 0.2s ease;

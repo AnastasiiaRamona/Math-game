@@ -55,21 +55,43 @@ class Controller {
   }
 
   updateButtonColor(doneButton, state) {
-    doneButton.removeClass('wrong right disabled');
-
     switch (state) {
       case 'right':
-        doneButton.addClass('right');
+        this.setDisabledState(doneButton, 'right');
         break;
       case 'wrong':
         doneButton.addClass('wrong');
         break;
       case 'disabled':
-        doneButton.addClass('disabled');
+        this.setDisabledState(doneButton, 'disabled');
         break;
       default:
         console.warn(`Unknown state: ${state}`);
     }
+
+    setTimeout(() => {
+      doneButton.removeClass(state);
+      if (state === 'right') {
+        this.setDisabledState(doneButton, 'disabled');
+      }
+    }, 1000);
+  }
+
+  setDisabledState(button, color) {
+    button.prop('disabled', true);
+    button.addClass(color);
+  }
+
+  deleteDisabledState(button, color) {
+    button.prop('disabled', false);
+    button.removeClass(color);
+  }
+
+  addRedFlashingToTheAnswerInput() {
+    $('#answerInput').addClass('input-error-text');
+    setTimeout(() => {
+      $('#answerInput').removeClass('input-error-text');
+    }, 1000);
   }
 
   async validateNumber(value) {

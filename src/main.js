@@ -1,3 +1,4 @@
 import './style.css';
-import './routes';
-// router.navigateTo('/start');
+import router from './routes';
+
+router.navigateTo('/start');

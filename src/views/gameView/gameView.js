@@ -62,6 +62,7 @@ class GameView {
       const isAnswerCorrect = this.controller.checkResult(answer);
       if (isAnswerCorrect) {
         if (this.controller.getCurrentIndex() > 10) {
+          this.controller.setDisabledState(doneButton, 'disabled');
           return;
         }
 
@@ -80,13 +81,11 @@ class GameView {
 
         $('.exercises').append(newExercise);
         newExercise.hide().fadeIn(500);
-        // this.controller.updateButtonColor(doneButton, 'right');
-        doneButton.prop('disabled', true);
-        this.controller.updateButtonColor(doneButton, 'disabled');
+        this.controller.updateButtonColor(doneButton, 'right');
         this.addEventListenerToInputAnswer();
       } else {
-        // this.controller.updateButtonColor(doneButton, 'wrong');
-        alert('Wrong answer');
+        this.controller.updateButtonColor(doneButton, 'wrong');
+        this.controller.addRedFlashingToTheAnswerInput();
       }
     });
   }
@@ -98,11 +97,9 @@ class GameView {
       );
       const doneButton = $('#doneButton');
       if (!isAnswerValid) {
-        doneButton.prop('disabled', true);
-        this.controller.updateButtonColor(doneButton, 'disabled');
+        this.controller.setDisabledState(doneButton, 'disabled');
       } else {
-        doneButton.prop('disabled', false);
-        doneButton.removeClass('disabled');
+        this.controller.deleteDisabledState(doneButton, 'disabled');
       }
     });
   }
