@@ -1,0 +1,13 @@
+.right {
+  background-color: #228B22;
+  cursor: not-allowed;
+}
+
+.wrong {
+  background-color: #FA8072;
+}
+
+.disabled {
+  background-color: #A9A9A9;
+  cursor: not-allowed;
+}

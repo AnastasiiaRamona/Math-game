@@ -1,0 +1,58 @@
+.exercises {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 2vh;
+  align-items: flex-start;
+}
+
+.exercise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vh;
+  font-size: 2rem;
+}
+
+.exercise p {
+  margin: 0;
+}
+
+.exercise input {
+  font-family: 'Noto Sans', serif;
+  height: 2rem;
+  width: 3rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.input-error-text {
+  color: red;
+}
+
+@media screen and (max-width: 1090px) {
+  .exercise {
+    height: calc(30px + 2vh);
+  }
+
+  .exercise p,
+  .exercise input {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .exercise {
+    height: calc(28px + 2vh);
+  }
+
+  .exercises {
+    width: 140px;
+  }
+
+  .exercise p,
+  .exercise input {
+    font-size: 1rem;
+  }
+}

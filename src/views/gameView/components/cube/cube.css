@@ -1,0 +1,20 @@
+.cube {
+  width: 48px;
+  height: 48px;
+  background-color: #8eeb8f;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1090px) {
+  .cube {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .cube {
+    width: 20px;
+    height: 20px;
+  }
+}
