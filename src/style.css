@@ -6,6 +6,7 @@
 
   color-scheme: light dark;
   background-color: #efedef;
+  color: rgb(8, 29, 45);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,11 +22,11 @@ body {
   flex-direction: row;
   align-items: center;
   margin: 0;
+  overflow-x: hidden;
 }
 
 button {
-  width: 8vw;
-  height: 4vh;
+  padding: 0.4rem 1.5rem;
   cursor: pointer;
   font-size: large;
   background-color: #1cb3aa;
@@ -33,4 +34,13 @@ button {
   border: none;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:hover:not([disabled]) {
+  background-color: #AFEEEE;
+  color: rgb(8, 29, 45);
+}
+
+h1 {
+  font-size: xx-large;
 }

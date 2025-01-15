@@ -71,16 +71,20 @@ class GameView {
           {
             top:
               (this.controller.getCurrentIndex() - 1) *
-              (48 + this.vhToPixels(2)),
+              (48 + this.controller.vhToPixels(2)),
           },
           500
         );
 
         $('.exercises').append(newExercise);
         newExercise.hide().fadeIn(500);
-        this.updateButtonColor(doneButton, 'right');
+        // this.controller.updateButtonColor(doneButton, 'right');
+        doneButton.prop('disabled', true);
+        this.controller.updateButtonColor(doneButton, 'disabled');
+        this.addEventListenerToInputAnswer();
       } else {
-        this.updateButtonColor(doneButton, 'wrong');
+        // this.controller.updateButtonColor(doneButton, 'wrong');
+        alert('Wrong answer');
       }
     });
   }
@@ -88,41 +92,17 @@ class GameView {
   addEventListenerToInputAnswer() {
     $('#answerInput').on('input', () => {
       const isAnswerValid = this.controller.checkInputAnswer(
-        $('#answerInput').val()
+        Number($('#answerInput').val())
       );
       const doneButton = $('#doneButton');
       if (!isAnswerValid) {
         doneButton.prop('disabled', true);
-        this.updateButtonColor(doneButton, 'disabled');
+        this.controller.updateButtonColor(doneButton, 'disabled');
       } else {
         doneButton.prop('disabled', false);
         doneButton.removeClass('disabled');
       }
     });
-  }
-
-  vhToPixels(vh) {
-    const viewportHeight = window.innerHeight;
-    const pixels = (vh / 100) * viewportHeight;
-    return pixels;
-  }
-
-  updateButtonColor(doneButton, state) {
-    doneButton.removeClass('wrong right disabled');
-
-    switch (state) {
-      case 'right':
-        doneButton.addClass('right');
-        break;
-      case 'wrong':
-        doneButton.addClass('wrong');
-        break;
-      case 'disabled':
-        doneButton.addClass('disabled');
-        break;
-      default:
-        console.warn(`Unknown state: ${state}`);
-    }
   }
 }
 

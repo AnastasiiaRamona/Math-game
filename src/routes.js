@@ -1,4 +1,4 @@
-import StartView from './views/startView';
+import StartView from './views/startView/startView';
 import GameView from './views/gameView/gameView';
 
 const startView = new StartView();

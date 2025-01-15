@@ -44,11 +44,31 @@ class Controller {
   }
 
   checkInputAnswer(answer) {
-    if (answer === '' || answer === undefined || answer === null) {
-      return false;
-    }
+    return typeof answer === 'number' && !isNaN(answer) && answer !== 0;
+  }
 
-    return true;
+  vhToPixels(vh) {
+    const viewportHeight = window.innerHeight;
+    const pixels = (vh / 100) * viewportHeight;
+    return pixels;
+  }
+
+  updateButtonColor(doneButton, state) {
+    doneButton.removeClass('wrong right disabled');
+
+    switch (state) {
+      case 'right':
+        doneButton.addClass('right');
+        break;
+      case 'wrong':
+        doneButton.addClass('wrong');
+        break;
+      case 'disabled':
+        doneButton.addClass('disabled');
+        break;
+      default:
+        console.warn(`Unknown state: ${state}`);
+    }
   }
 }
 
