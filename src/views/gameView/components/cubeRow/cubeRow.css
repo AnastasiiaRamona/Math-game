@@ -1,11 +1,11 @@
 .cube-rows {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
   gap: 2vh;
   position: relative;
   height: 85vh;
-  width: 60%;
+  width: 40vw;
 }
 
 .cube-row {

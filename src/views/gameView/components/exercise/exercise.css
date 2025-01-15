@@ -31,7 +31,7 @@
   color: red;
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 930px) {
   .exercise {
     height: calc(30px + 2vh);
   }
@@ -48,7 +48,7 @@
   }
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 700px) {
   .exercise {
     height: calc(28px + 2vh);
   }
