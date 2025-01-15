@@ -2,10 +2,12 @@
 
 A fun and interactive game designed to improve your multiplication skills with visual guidance provided by dice patterns. Players solve multiplication problems by entering answers in input fields and receiving real-time feedback.
 
-# Deploy Link
+## Deploy Links
 
-[GitHub](https://anastasiiaramona.github.io/Math-game/)
-[Netlify](https://anastasiiaramona-math-game.netlify.app/)
+- [GitHub](https://anastasiiaramona.github.io/Math-game/)
+- [Netlify](https://anastasiiaramona-math-game.netlify.app/)
+
+## Screenshots
 
 ## Features
 
