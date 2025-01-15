@@ -11,6 +11,8 @@ class GameView {
   }
 
   render() {
+    this.controller.model.clearSavedData();
+
     const exercise = this.createExercise();
     const cubeRow = this.createCubeRow();
 

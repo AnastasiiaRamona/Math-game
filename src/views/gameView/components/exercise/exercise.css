@@ -1,6 +1,7 @@
 .exercises {
   display: flex;
   flex-direction: column;
+  width: 200px;
   gap: 2vh;
   align-items: flex-start;
 }

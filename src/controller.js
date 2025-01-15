@@ -19,6 +19,7 @@ class Controller {
   }
 
   startGame() {
+    this.model.clearSavedData();
     router.navigateTo('/game');
   }
 
@@ -69,6 +70,10 @@ class Controller {
       default:
         console.warn(`Unknown state: ${state}`);
     }
+  }
+
+  async validateNumber(value) {
+    await this.model.validationSchema.validate(Number(value));
   }
 }
 

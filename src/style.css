@@ -34,11 +34,13 @@ button {
   border: none;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 button:hover:not([disabled]) {
   background-color: #AFEEEE;
   color: rgb(8, 29, 45);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1 {

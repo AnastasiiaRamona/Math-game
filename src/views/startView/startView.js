@@ -38,6 +38,19 @@ class StartView {
       this.controller.setCurrentMultiplier(number);
       this.controller.startGame();
     });
+
+    this.addEventListenerToNumberInput();
+  }
+
+  addEventListenerToNumberInput() {
+    $('#numberInput').on('input', async () => {
+      try {
+        await this.controller.validateNumber($('#numberInput').val());
+        $('#startButton').removeClass('disabled').prop('disabled', false);
+      } catch {
+        $('#startButton').addClass('disabled').prop('disabled', true);
+      }
+    });
   }
 }
 
