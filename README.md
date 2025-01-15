@@ -29,6 +29,8 @@ A fun and interactive game designed to improve your multiplication skills with v
 
 ## Installation
 
+**Prerequisites:** node.js 20
+
 To get started with the project, follow these steps:
 
 1. **Clone the Repository**:
