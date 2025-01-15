@@ -4,7 +4,8 @@ A fun and interactive game designed to improve your multiplication skills with v
 
 # Deploy Link
 
-[link](ya.ru)
+[GitHub](https://anastasiiaramona.github.io/Math-game/)
+[Netlify](https://anastasiiaramona-math-game.netlify.app/)
 
 ## Features
 
