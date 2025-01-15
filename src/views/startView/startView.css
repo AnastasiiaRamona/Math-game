@@ -6,6 +6,7 @@
   width: 100vw;
   position: relative;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 .start-page {
@@ -27,4 +28,17 @@
 #numberInput {
   font-size: large;
   padding: 5px;
+  min-width: 20px;
 }
+
+.home-image {
+  max-width: 90vw;
+}
+
+@media screen and (max-width: 578px) {
+  .start-page {
+    padding: 20px;
+  }
+}
+
+@media screen and (min-height: 640px) {}

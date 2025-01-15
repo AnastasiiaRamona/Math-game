@@ -12,7 +12,7 @@ class StartView {
     const header = new Header();
     const headerContent = header.create();
 
-    const mainView = $('<main class="main-view"></main>');
+    const mainView = $('<section class="main-view"></section>');
     mainView.append(headerContent);
 
     const content = `
@@ -26,7 +26,7 @@ class StartView {
             </div>
           </div>
       </section>
-      <img src="${homeImage}" alt="Logo" class="home-image" />
+      <img src="${homeImage}" alt="Home-image" class="home-image" />
     `;
 
     mainView.append(content);

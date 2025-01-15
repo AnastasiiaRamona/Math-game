@@ -30,3 +30,31 @@
 .input-error-text {
   color: red;
 }
+
+@media screen and (max-width: 830px) {
+  .exercise {
+    height: calc(30px + 2vh);
+  }
+
+  .exercise p,
+  .exercise input {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 634px) {
+  .exercises {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .exercise {
+    height: calc(28px + 2vh);
+  }
+
+  .exercise p,
+  .exercise input {
+    font-size: 1rem;
+  }
+}
