@@ -5,7 +5,7 @@
   gap: 2vh;
   position: relative;
   height: 85vh;
-  width: 40vw;
+  width: 20vw;
 }
 
 .cube-row {
@@ -15,4 +15,10 @@
   flex-direction: row;
   gap: 1vh;
   position: absolute;
+}
+
+@media screen and (max-width: 830px) {
+  .exercises {
+    width: auto;
+  }
 }
