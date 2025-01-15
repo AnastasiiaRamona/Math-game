@@ -63,8 +63,21 @@ class GameView {
           return;
         }
 
-        $('.exercises').append(this.createExercise());
-        $('.cube-rows').append(this.createCubeRow());
+        const newExercise = this.createExercise();
+        const newCubeRow = this.createCubeRow();
+        $('.cube-rows').append(newCubeRow);
+
+        newCubeRow.animate({ top: '100%' }, 0).animate(
+          {
+            top:
+              (this.controller.getCurrentIndex() - 1) *
+              (48 + this.vhToPixels(2)),
+          },
+          500
+        );
+
+        $('.exercises').append(newExercise);
+        newExercise.hide().fadeIn(500);
         this.updateButtonColor(doneButton, 'right');
       } else {
         this.updateButtonColor(doneButton, 'wrong');
@@ -86,6 +99,12 @@ class GameView {
         doneButton.removeClass('disabled');
       }
     });
+  }
+
+  vhToPixels(vh) {
+    const viewportHeight = window.innerHeight;
+    const pixels = (vh / 100) * viewportHeight;
+    return pixels;
   }
 
   updateButtonColor(doneButton, state) {

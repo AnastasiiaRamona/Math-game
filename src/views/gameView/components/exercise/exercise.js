@@ -11,7 +11,7 @@ class Exercise {
     const content = $(`
       <div class="exercise">
         <p>${this.firstMultiplier} × ${this.secondMultiplier} = </p>
-        <input type="number" id="answerInput">
+        <input id="answerInput">
       </div>
     `);
     return content;

@@ -3,6 +3,8 @@
   align-items: center;
   flex-direction: column;
   gap: 2vh;
+  position: relative;
+  height: 100vh;
 }
 
 .cube-row {
@@ -11,4 +13,5 @@
   align-items: center;
   flex-direction: row;
   gap: 1vh;
+  position: absolute;
 }
